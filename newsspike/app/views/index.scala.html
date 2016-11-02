@@ -1,0 +1,34 @@
+@(demoForm: Form[DemoData])(implicit messages: Messages)
+
+@import helper._
+
+@main(title = "NewsSpike") {
+
+    <h1> NewsSpike Relation Extractor </h1>
+
+    @form(action = routes.Application.processText()) {
+  
+      @textarea(
+        field = demoForm("sampleText"),
+        args = '_label -> "Enter Sample Text:", 
+               'placeholder -> "Enter text.",
+               'rows -> 20,
+               'cols -> 125
+      )
+
+      @textarea(
+        field = demoForm("processedText"),
+        args = '_label -> "Processed Text:", 
+               'placeholder -> "Extracted Relations Appear Here.",
+               'rows -> 20,
+               'cols -> 125
+      )
+
+      <p class="buttons">
+        <input type="submit" id="submit" value="Extract Relations">
+      <p>
+
+    }
+
+
+}
