@@ -1,0 +1,19 @@
+@(demoForm: Form[(String,String)])
+@import helper._
+
+@main(title = "NewsSpike Relation Extractor") {
+
+    <h1> Try it out </h1>
+
+    @form(action = routes.Application.processText, args = 'id -> "demoform"){
+      @inputText(
+        field = demoForm("sampleText"),
+        args = '_label -> "Enter Sample Text: ", 'placeholder -> "Bob spent Monday night in Miami."
+      )
+
+      <p class="buttons">
+        <input type="submit" id="submit">
+      <p>    
+    }
+
+}
